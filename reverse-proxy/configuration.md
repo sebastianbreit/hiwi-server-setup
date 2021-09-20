@@ -1,9 +1,12 @@
-#Run reverse proxy to host multiple apps on subdomains
-##Run nginx-proxy container:
+# Run reverse proxy to host multiple apps on subdomains
+## Tutorial link
+https://linuxhandbook.com/nginx-reverse-proxy-docker/
 
-$ docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock -t jwilder/nginx-proxy
+## Run nginx-proxy container and certificate helper container:
 
-##Start your containers with a VIRTUAL_HOST environment variables:
+$ docker-compose up -d
 
-$ docker run -e VIRTUAL_HOST=foo.bar.com  ...
+## Start your containers with a VIRTUAL_HOST and LETSENCRYPT_HOST environment variables:
+
+$ docker run --rm --name my_app -e VIRTUAL_HOST=sub.domain.com -e LETSENCRYPT_HOST=sub.domain.com -e VIRTUAL_PORT=80 --network net -d my_image
 
