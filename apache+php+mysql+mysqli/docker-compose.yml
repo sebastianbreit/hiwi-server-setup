@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+    php-apache-environment:
+        container_name: php-apache
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        depends_on:
+            - db
+        volumes:
+            - ./:/var/www/html/
+        ports:
+          - "8000:80"
+    db:
+        #Container name must be host name for mysqli connection (at least locally)
+        container_name: db
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: memorygrid
+            MYSQL_USER: test
+            MYSQL_PASSWORD: test
+        ports:
+            - "9906:3306"
