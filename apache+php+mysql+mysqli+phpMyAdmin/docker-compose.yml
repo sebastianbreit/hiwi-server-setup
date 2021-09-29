@@ -1,5 +1,5 @@
 version: "3.7"
-
+#https://www.section.io/engineering-education/dockerized-php-apache-and-mysql-container-development-environment/
 services:
     #Adapt the service and container names to be unique for your project        
     php-apache-environment-2:
@@ -26,6 +26,7 @@ services:
         ports:
             - "9906:3306"
     phpmyadmin:
+        #https://hub.docker.com/_/phpmyadmin?tab=description
         image: phpmyadmin/phpmyadmin
         ports:
             - '8080:80'
