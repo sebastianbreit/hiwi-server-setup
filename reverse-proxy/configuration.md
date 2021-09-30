@@ -4,9 +4,18 @@ https://linuxhandbook.com/nginx-reverse-proxy-docker/
 
 ## Run nginx-proxy container and certificate helper container:
 
+* Create new network
+$ docker network create reverse-proxy-net
+
+* Start your reverse proxy
 $ docker-compose up -d
 
 ## Start your containers with a VIRTUAL_HOST and LETSENCRYPT_HOST environment variables:
 
-$ docker run --rm --name my_app -e VIRTUAL_HOST=sub.domain.com -e LETSENCRYPT_HOST=sub.domain.com -e VIRTUAL_PORT=80 --network net -d my_image
+* Example to see if works
+$ docker run --rm --name nginx-dummy -e VIRTUAL_HOST=test.localhost -e LETSENCRYPT_HOST=test.localhost -e VIRTUAL_PORT=80 --network reverse-proxy-net -d nginx:latest
 
+* In general
+$ docker run --rm --name my_app -e VIRTUAL_HOST=sub.domain.com -e LETSENCRYPT_HOST=sub.domain.com -e VIRTUAL_PORT=80 --network reverse-proxy-net -d my_image
+
+docker run --rm --name memorygrid -e VIRTUAL_HOST=memorygrid.localhost -e LETSENCRYPT_HOST=memorygrid.localhost -e VIRTUAL_PORT=80 --network reverse-proxy-net -d memorygrid_php-apache-environment
