@@ -21,10 +21,10 @@ if ($conn->connect_error) {
 $host = 'db-2';
 
 // Database use name
-$user = 'test';
+$user = 'test_phpMyadmin';
 
 //database user password
-$pass = 'test';
+$pass = 'test_phpMyadmin';
 
 // check the MySQL connection status
 $conn = new mysqli($host, $user, $pass);

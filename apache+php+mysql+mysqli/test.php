@@ -4,7 +4,7 @@
 // The MySQL service named in the docker-compose.yml.
 $host = 'db';
 
-// Database use name
+// Database user name
 $user = 'root';
 
 //database user password

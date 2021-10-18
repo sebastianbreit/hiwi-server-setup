@@ -10,8 +10,8 @@ services:
         depends_on:
             - db-2
         environment:
-            VIRTUAL_HOST: memorygrid.localhost 
-            LETSENCRYPT_HOST: memorygrid.localhost 
+            VIRTUAL_HOST: test_phpMyadmin.localhost 
+            LETSENCRYPT_HOST: test_phpMyadmin.localhost 
             VIRTUAL_PORT: 80
         networks: 
             - "reverse-proxy-net"
@@ -26,9 +26,9 @@ services:
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: test
-            MYSQL_USER: test
-            MYSQL_PASSWORD: test
+            MYSQL_DATABASE: test_phpMyadmin
+            MYSQL_USER: test_phpMyadmin
+            MYSQL_PASSWORD: test_phpMyadmin
         networks: 
             - "reverse-proxy-net"
         ports:

@@ -18,4 +18,8 @@ $ docker run --rm --name nginx-dummy -e VIRTUAL_HOST=test.localhost -e LETSENCRY
 * In general
 $ docker run --rm --name my_app -e VIRTUAL_HOST=sub.domain.com -e LETSENCRYPT_HOST=sub.domain.com -e VIRTUAL_PORT=80 --network reverse-proxy-net -d my_image
 
-docker run --rm --name memorygrid -e VIRTUAL_HOST=memorygrid.localhost -e LETSENCRYPT_HOST=memorygrid.localhost -e VIRTUAL_PORT=80 --network reverse-proxy-net -d memorygrid_php-apache-environment
+## Run whole apps with docker-compose
+* Run in background
+$ docker-compose up -d
+* For example setups with reverse-proxy, see the docker-compose.yml files in the respective sub-folders
+* Example in memorygrid folder
