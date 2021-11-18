@@ -8,7 +8,7 @@ services:
     environment:
       - VIRTUAL_HOST=localhost
       - VIRTUAL_PORT=8000
-      - VIRTUAL_PATH=/whoami
+      - VIRTUAL_PATH=/whoami-2
     networks: 
       - "reverse-proxy-net"
 
