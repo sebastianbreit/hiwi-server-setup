@@ -1,14 +1,15 @@
 version: '2'
 
 services:
-  whoami:
+  whoami-1:
     image: jwilder/whoami
     expose:
       - "8000"
-    environment:
-      - VIRTUAL_HOST=localhost
-      - VIRTUAL_PORT=8000
-      - VIRTUAL_PATH=/whoami
+    #environment:
+    #  - VIRTUAL_HOST=localhost
+    #  - VIRTUAL_PORT=8000
+    #  - VIRTUAL_PATH=/whoami-1
+    restart: always
     networks: 
       - "reverse-proxy-net"
 

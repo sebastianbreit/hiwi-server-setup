@@ -5,11 +5,9 @@ services:
     image: nginxproxy/nginx-proxy
     container_name: "reverse-proxy"
     volumes:
-        - "html:/usr/share/nginx/html"
-        - "dhparam:/etc/nginx/dhparam"
-        - "vhost:/etc/nginx/vhost.d"
-        - "certs:/etc/nginx/certs"
-        - "/run/docker.sock:/tmp/docker.sock:ro"
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - ./proxy.conf:/etc/nginx/proxy.conf:ro
+        - certs:/etc/nginx/certs
     restart: "always"
     networks: 
         - "reverse-proxy-net"
@@ -20,9 +18,6 @@ services:
 
 volumes:
   certs:
-  html:
-  vhost:
-  dhparam:
 
 networks:
   reverse-proxy-net:
