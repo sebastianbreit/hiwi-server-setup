@@ -1,0 +1,12 @@
+whoami:
+    image: jwilder/whoami
+    expose:
+      - "8000"
+    environment:
+      - VIRTUAL_HOST=localhost
+      - VIRTUAL_PORT=8000
+      - VIRTUAL_PATH=/whoami
+    networks: 
+      - "reverse-proxy-net"
+
+      
