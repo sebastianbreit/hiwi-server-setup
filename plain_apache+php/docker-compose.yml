@@ -11,8 +11,8 @@ services:
         restart: always
         networks: 
             - "reverse-proxy-net"
-        #expose:
-        #    - "6000"
+        expose:
+            - "80"
 networks:
   reverse-proxy-net:
     external: true
