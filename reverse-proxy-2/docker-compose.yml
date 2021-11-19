@@ -7,7 +7,7 @@ services:
     volumes:
         - /var/run/docker.sock:/tmp/docker.sock:ro
         - ./proxy.conf:/etc/nginx/proxy.conf:ro
-        - ./certs:/etc/nginx/certs
+        - /home-link/sebdw02/certs:/etc/nginx/certs
     restart: "always"
     networks: 
         - "reverse-proxy-net"
