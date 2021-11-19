@@ -11,8 +11,10 @@ services:
         restart: always
         networks: 
             - "reverse-proxy-net"
-        expose:
-            - "80"
+        #expose:
+        #    - "80"
+        ports:
+          - "8000:80"
 networks:
   reverse-proxy-net:
     external: true
