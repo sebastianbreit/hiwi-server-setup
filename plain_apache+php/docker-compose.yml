@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-    plain-apache-environment:
+    plain-php:
         #container_name: plain-apache
         build:
             context: ./
@@ -13,8 +13,6 @@ services:
             - "reverse-proxy-net"
         expose:
             - "9000"
-        #ports:
-        #  - "8000:80"
 networks:
   reverse-proxy-net:
     external: true

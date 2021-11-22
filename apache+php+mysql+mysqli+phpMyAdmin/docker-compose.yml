@@ -2,7 +2,7 @@ version: "3.7"
 #https://www.section.io/engineering-education/dockerized-php-apache-and-mysql-container-development-environment/
 services:
     #Adapt the service and container names to be unique for your project        
-    php-apache-environment-2:
+    php-2:
         container_name: php-apache-2
         build:
             context: ./
@@ -14,8 +14,6 @@ services:
             - "reverse-proxy-net"
         volumes:
             - ./:/var/www/html/
-        #ports:
-        #  - "8000:80"
     db-2:
         #Service name must be host name for mysqli connection (at least locally)
         container_name: db-2
@@ -28,16 +26,13 @@ services:
             MYSQL_PASSWORD: test_phpMyadmin
         networks: 
             - "reverse-proxy-net"
-        ports:
-            - "9906:3306"
     phpmyadmin:
         #https://hub.docker.com/_/phpmyadmin?tab=description
         image: phpmyadmin/phpmyadmin
-        #ports:
-        #    - '8080:80'
         restart: always
         environment:
             PMA_HOST: db-2
+            PMA_ABSOLUTE_URI: http://localhost/phpmyadmin
         networks: 
             - "reverse-proxy-net"
         depends_on:

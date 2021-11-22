@@ -1,8 +1,8 @@
 version: "3.7"
 
 services:
-    php-apache-environment:
-        container_name: php-apache
+    php-1:
+        container_name: php-apache-1
         build:
             context: ./
             dockerfile: Dockerfile
@@ -13,9 +13,7 @@ services:
             - "reverse-proxy-net"
         volumes:
             - ./:/var/www/html/
-        ports:
-          - "8000:80"
-    db:
+    db-1:
         #Container name must be host name for mysqli connection (at least locally)
         container_name: db
         image: mysql
@@ -27,8 +25,6 @@ services:
             MYSQL_PASSWORD: test
         networks: 
             - "reverse-proxy-net"
-        ports:
-            - "9906:3306"
 
 networks:
   reverse-proxy-net:
