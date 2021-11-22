@@ -2,7 +2,6 @@ version: "3.7"
 
 services:
     plain-apache:
-        #container_name: plain-apache
         build:
             context: ./
             dockerfile: Dockerfile
@@ -11,10 +10,6 @@ services:
         restart: always
         networks: 
             - "reverse-proxy-net"
-        expose:
-            - "5000"
-        #ports:
-        #  - "81:80"
 networks:
   reverse-proxy-net:
     external: true

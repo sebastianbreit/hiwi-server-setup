@@ -16,7 +16,7 @@ services:
             - ./:/var/www/html/
     db-2:
         #Service name must be host name for mysqli connection (at least locally)
-        container_name: db-2
+        #container_name: db-2
         image: mysql
         restart: always
         environment:
@@ -32,7 +32,7 @@ services:
         restart: always
         environment:
             PMA_HOST: db-2
-            PMA_ABSOLUTE_URI: http://localhost/phpmyadmin
+            PMA_ABSOLUTE_URI: http://memo.hib.uni-tuebingen.de/database/
         networks: 
             - "reverse-proxy-net"
         depends_on:
