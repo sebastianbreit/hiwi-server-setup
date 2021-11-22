@@ -32,7 +32,7 @@ services:
         restart: always
         environment:
             PMA_HOST: db-2
-            PMA_ABSOLUTE_URI: memo.hib.uni-tuebingen.de/database/
+            PMA_ABSOLUTE_URI: https://memo.hib.uni-tuebingen.de/database/
         networks: 
             - "reverse-proxy-net"
         depends_on:
