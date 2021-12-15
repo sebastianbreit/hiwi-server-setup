@@ -7,7 +7,7 @@
 
 ## NGINX reverse-proxy
 * What does a reverse-proxy do?
-	* nginx reverse-proxy is used to host multiple apps under various subdomains, eg. myapp_1.mydomain.de, myapp_2.mydomain.de, ...
+	* nginx reverse-proxy is used to host multiple apps under various subdomains, eg. mydomain.de/myapp-1,myapp_mydomain.de/myapp-2, ...
 * To run and configure the nginx-reverse-proxy, check configuration.md in folder reverse-proxy
 
 ## Your experiments
