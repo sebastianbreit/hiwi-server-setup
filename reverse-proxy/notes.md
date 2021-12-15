@@ -14,15 +14,15 @@ $ docker-compose up -d
 * Do NOT change docker-compose.yml, ONLY proxy.conf
 ### proxy.conf
 * to add a new routing, add a new location mapping to the server segment
-* the tag assigned to location must be the **docker service name** of your application
-* the **proxy_pass** is mapped to the **actual URL**
+* the tag assigned to location is mapped to the **actual URL** 
+* the **proxy_pass** must be the **docker service name** or **container name** of your application
 * Example:
-	* location /experiment-1 {
-        # Add the trailing slash to the proxy_pass to reroute request to / 
-        proxy_pass  http://php-experiment-1/;
+	* location /test{
+        # Trailing slash is required in some cases, but not in others, simply test it 
+        proxy_pass  http://plain-apache/;
     	} 
-	* example service-name: experiment-1
-	* example URL: example.com/php-experiment-1
+	* example service-name: plain-apache
+	* example URL: example.com/test
 
 
 ## Run whole apps with docker-compose
