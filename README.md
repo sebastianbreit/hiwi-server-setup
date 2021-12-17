@@ -19,6 +19,11 @@
 4. run docker-compose up -d
 5. DONE - now your experiment is running as configured in your docker-compose.yml
 
+### If you want your code to write to local files, execute the following in your directory
+* chmod -R 777 your-exp-directory
+* This enables all users to write to that directory, which includes the users within the docker container
+* php uses the user www-data, which only exists in the container, thus assigning ownership on the host does not work as the user **exists only within the container**
+
 ### Updating your running experiment
 1. run docker stop YOUR_CONTAINER_NAME
 2. pull your github repository
